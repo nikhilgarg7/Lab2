@@ -9,7 +9,6 @@ import edu.illinois.cs.cs125.lib.mazemaker.Maze;
  */
 @SuppressWarnings("checkstyle:emptyblock")
 public class SolveMaze {
-
     /**
      * Implement your maze solving algorithm in the main method below.
      *
@@ -35,8 +34,15 @@ public class SolveMaze {
          */
         for (int step = 0; step < 1000; step++) {
             // Implement your maze solving algorithm here
+            if (!maze.isFinished()) {
+                if (maze.canMove()) {
+                    maze.move();
+                    maze.turnRight();
+                } else {
+                    maze.turnLeft();
+                }
+            }
         }
-
         if (maze.isFinished()) {
             System.out.println("You solved the maze!");
         } else {
